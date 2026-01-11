@@ -1,118 +1,116 @@
 /*
  * Main JavaScript for the Telskof Travel landing page.
- * Handles the mobile navigation toggle, smooth closing of the nav after
- * selection, modal open/close behaviour with focus trapping, ESC key
- * handling and dynamic year insertion. This file intentionally avoids
- * any external dependencies and keeps logic straightforward.
+ * Clean, safe, Netlify-ready.
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('.nav');
-  const navLinks = document.querySelectorAll('.nav-list a');
+document.addEventListener("DOMContentLoaded", () => {
 
-  /**
-   * Toggle the mobile navigation open/closed.
-   */
+  /* =======================
+     NAVIGATION
+  ======================== */
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".nav");
+  const navLinks = document.querySelectorAll(".nav-list a");
+
   function toggleNav() {
-    nav.classList.toggle('open');
-    burger.classList.toggle('active');
+    nav?.classList.toggle("open");
+    burger?.classList.toggle("active");
   }
 
-  burger.addEventListener('click', toggleNav);
+  burger?.addEventListener("click", toggleNav);
 
-  // Close nav when clicking a link on mobile
-  navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
       if (window.innerWidth < 768) {
-        nav.classList.remove('open');
-        burger.classList.remove('active');
+        nav?.classList.remove("open");
+        burger?.classList.remove("active");
       }
     });
   });
 
-  /* Modal logic */
-  const openVisaBtn = document.getElementById('open-visa-modal');
-  const modal = document.getElementById('visa-modal');
-  const overlay = modal.querySelector('.modal-overlay');
-  const closeModalBtn = modal.querySelector('.modal-close');
+  /* =======================
+     VISA MODAL (SAFE)
+  ======================== */
+  const openVisaBtn = document.getElementById("open-visa-modal");
+  const modal = document.getElementById("visa-modal");
 
-  // Focusable elements inside the modal for basic focus trap
-  const focusableSelectors = 'input, textarea, button, select, a[href]';
-  let focusableElements = [];
-  let firstFocusable;
-  let lastFocusable;
+  if (openVisaBtn && modal) {
+    const overlay = modal.querySelector(".modal-overlay");
+    const closeModalBtn = modal.querySelector(".modal-close");
 
-  function openModal() {
-    modal.classList.add('active');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    // Collect focusable elements after modal is visible
-    focusableElements = Array.from(
-      modal.querySelectorAll(focusableSelectors)
-    ).filter((el) => !el.hasAttribute('disabled'));
-    if (focusableElements.length) {
-      [firstFocusable] = focusableElements;
-      lastFocusable = focusableElements[focusableElements.length - 1];
-      firstFocusable.focus();
+    const focusableSelectors = "input, textarea, button, select, a[href]";
+    let focusableElements = [];
+    let firstFocusable, lastFocusable;
+
+    function openModal() {
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      focusableElements = Array.from(
+        modal.querySelectorAll(focusableSelectors)
+      ).filter(el => !el.disabled);
+
+      if (focusableElements.length) {
+        firstFocusable = focusableElements[0];
+        lastFocusable = focusableElements[focusableElements.length - 1];
+        firstFocusable.focus();
+      }
     }
-  }
 
-  function closeModal() {
-    modal.classList.remove('active');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  openVisaBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    openModal();
-  });
-
-  closeModalBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', closeModal);
-
-  // Close on Escape key
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closeModal();
+    function closeModal() {
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
     }
-    // Trap focus within modal when open
-    if (e.key === 'Tab' && modal.classList.contains('active')) {
-      if (focusableElements.length === 0) return;
-      if (e.shiftKey) {
-        // Shift + Tab
-        if (document.activeElement === firstFocusable) {
+
+    openVisaBtn.addEventListener("click", e => {
+      e.preventDefault();
+      openModal();
+    });
+
+    closeModalBtn?.addEventListener("click", closeModal);
+    overlay?.addEventListener("click", closeModal);
+
+    window.addEventListener("keydown", e => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+
+      if (e.key === "Tab" && modal.classList.contains("active")) {
+        if (!focusableElements.length) return;
+
+        if (e.shiftKey && document.activeElement === firstFocusable) {
           e.preventDefault();
           lastFocusable.focus();
-        }
-      } else {
-        // Tab
-        if (document.activeElement === lastFocusable) {
+        } else if (!e.shiftKey && document.activeElement === lastFocusable) {
           e.preventDefault();
           firstFocusable.focus();
         }
       }
-    }
-  });
-
-  /* Insert current year in footer */
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-    /* Footer scroll-to-top button */
-  const footerTopBtn = document.getElementById('footer-scroll-top');
-  if (footerTopBtn) {
-    footerTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-  /* ===== Netlify Forms (AJAX submit, no refresh) ===== */
+
+  /* =======================
+     FOOTER UTILITIES
+  ======================== */
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  const footerTopBtn = document.getElementById("footer-scroll-top");
+  footerTopBtn?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  /* =======================
+     NETLIFY FORMS (AJAX)
+  ======================== */
   function serializeForm(form) {
     const data = new FormData(form);
     const params = new URLSearchParams();
-    for (const [key, value] of data.entries()) params.append(key, value);
+    for (const [key, value] of data.entries()) {
+      params.append(key, value);
+    }
     return params.toString();
   }
 
@@ -121,20 +119,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!form) return;
 
     const btn = form.querySelector('button[type="submit"]');
-    const btnText = btn ? btn.textContent : "Send";
+    const btnText = btn?.textContent || "Send";
 
-    let msg = form.querySelector('.form-msg');
+    let msg = form.querySelector(".form-msg");
     if (!msg) {
-      msg = document.createElement('p');
-      msg.className = 'form-msg';
+      msg = document.createElement("p");
+      msg.className = "form-msg";
       form.appendChild(msg);
     }
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener("submit", async e => {
       e.preventDefault();
 
       msg.textContent = "";
-      msg.classList.remove('ok', 'err');
+      msg.classList.remove("ok", "err");
 
       if (btn) {
         btn.disabled = true;
@@ -144,21 +142,24 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const body = serializeForm(form);
 
-        const res = await fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body
-        });
+        const res = await fetch(
+          form.getAttribute("action") || window.location.pathname,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body
+          }
+        );
 
         if (!res.ok) throw new Error("Submit failed");
 
         form.reset();
         msg.textContent = "Sent successfully ✅";
-        msg.classList.add('ok');
+        msg.classList.add("ok");
 
       } catch (err) {
         msg.textContent = "Something went wrong, try again";
-        msg.classList.add('err');
+        msg.classList.add("err");
       } finally {
         if (btn) {
           btn.disabled = false;
