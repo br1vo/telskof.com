@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Telskof Travel</title>
+    <!-- Google Fonts: two families for headings and body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header with logo and navigation -->
+    <header class="header">
+      <div class="container nav-container">
+        <a href="#hero" class="logo">
+          <img src="assets/TelskofSVG.svg" alt="Telskof Travel logo" />
+        </a>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#flights">Flights</a></li>
+            <li><a href="#visa">Visa</a></li>
+            <li><a href="#group-trips">Trips</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <!-- Hamburger menu for mobile -->
+        <button class="burger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="hero-section">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <h1>
+        Start your
+        <span class="accent">unforgettable</span>
+        journey with us.
+      </h1>
+      <p class="hero-subtitle">The best travel for your flying begins now.</p>
+      <a href="#flights" class="btn btn-primary">Book Now</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="assets/photos/ishtargate.png" alt="telskof" />
+    </div>
+  </div>
+</section>
+
+
+      <!-- Services Section -->
+      <section id="services" class="services-section section">
+        <div class="container">
+          <h2 class="section-title">OUR SERVICES</h2>
+          <p class="section-subtitle">
+            Comprehensive travel support to elevate your experience.
+          </p>
+          <div class="services-grid">
+            <!-- Service Card 1 -->
+            <div class="service-card">
+              <div class="service-icon">
+                <!-- Airplane icon from Bootstrap icons -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318a.5.5 0 0 1-.354.854h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849m.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1s-.458.158-.678.599"
+                  />
+                </svg>
+              </div>
+              <h3>Flight Tickets</h3>
+              <p>Get unbeatable fares and worldwide routes at your fingertips.</p>
+            </div>
+            <!-- Service Card 2 -->
+            <div class="service-card">
+              <div class="service-icon">
+                <!-- Passport/Visa icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6M6 8a2 2 0 1 1 4 0 2 2 0 0 1-4 0m-.5 4a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z"
+                  />
+                  <path
+                    d="M3.232 1.776A1.5 1.5 0 0 0 2 3.252v10.95c0 .445.191.838.49 1.11.367.422.908.688 1.51.688h8a2 2 0 0 0 2-2V4a2 2 0 0 0-1-1.732v-.47A1.5 1.5 0 0 0 11.232.321l-8 1.454ZM4 3h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1"
+                  />
+                </svg>
+              </div>
+              <h3>Visa Assistance</h3>
+              <p>Navigate visa processes with ease and expert guidance.</p>
+            </div>
+            <!-- Service Card 3 -->
+            <div class="service-card">
+              <div class="service-icon">
+                <!-- People/Group icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"
+                  />
+                </svg>
+              </div>
+              <h3>Group Trips</h3>
+              <p>Enjoy curated travel experiences together with other explorers.</p>
+            </div>
+            <!-- Service Card 4 -->
+            <div class="service-card">
+              <div class="service-icon">
+                <!-- Hotel/House icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"
+                  />
+                  <path
+                    d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"
+                  />
+                </svg>
+              </div>
+              <h3>Hotel Booking</h3>
+              <p>Stay in the finest accommodations at exclusive rates.</p>
+            </div>
+            <!-- Service Card 5 -->
+            <div class="service-card">
+              <div class="service-icon">
+                <!-- Car icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0m10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM4.862 4.276 3.906 6.19a.51.51 0 0 0 .497.731c.91-.073 2.35-.17 3.597-.17s2.688.097 3.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 10.691 4H5.309a.5.5 0 0 0-.447.276"
+                  />
+                  <path
+                    d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679q.05.242.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.8.8 0 0 0 .381-.404l.792-1.848ZM4.82 3a1.5 1.5 0 0 0-1.379.91l-.792 1.847a1.8 1.8 0 0 0-.853.904.8.8 0 0 0-.43.564L1.03 8.904a1.5 1.5 0 0 0-.03.294v.413c0 .796.62 1.448 1.408 1.484 1.555.07 3.786.155 5.592.155s4.037-.084 5.592-.155A1.48 1.48 0 0 0 15 9.611v-.413q0-.148-.03-.294l-.335-1.68a.8.8 0 0 0-.43-.563 1.8 1.8 0 0 0-.853-.904l-.792-1.848A1.5 1.5 0 0 0 11.18 3z"
+                  />
+                </svg>
+              </div>
+              <h3>Airport Pickup</h3>
+              <p>Arrive in comfort with reliable airport transfers.</p>
+            </div>
+            <!-- Service Card 6 -->
+            <div class="service-card">
+              <div class="service-icon">
+                <!-- Geo/Compass icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.3 1.3 0 0 0-.37.265.3.3 0 0 0-.057.09V14l.002.008.016.033a.6.6 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.6.6 0 0 0 .146-.15l.015-.033L12 14v-.004a.3.3 0 0 0-.057-.09 1.3 1.3 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594.461.243.961.643.961 1.243 0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465s-2.462-.172-3.34-.465c-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411"
+                  />
+                </svg>
+              </div>
+              <h3>Tour Guidance</h3>
+              <p>Discover hidden gems with expert local guides.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Flight Tickets Section -->
+      <section id="flights" class="flights-section section">
+        <div class="container">
+          <h2 class="section-title">Flight Tickets</h2>
+          <p class="section-subtitle">
+            Unlock the world with flexible and affordable airline reservations.
+          </p>
+          <div class="tickets-grid">
+            <!-- Ticket card 1 -->
+            <div class="ticket-card">
+              <h3>International Flights</h3>
+              <ul>
+                <li>Global network of airlines</li>
+                <li>Transparent pricing with no hidden fees</li>
+                <li>Flexible change and cancellation policies</li>
+              </ul>
+            </div>
+            <!-- Ticket card 2 -->
+            <div class="ticket-card">
+              <h3>Domestic Flights</h3>
+              <ul>
+                <li>Exclusive deals on regional carriers</li>
+                <li>Comfortable seats and premium options</li>
+                <li>Earn loyalty miles with every booking</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partners Section -->
+      <section id="partners" class="partners-section section">
+        <div class="container">
+          <h2 class="section-title">Partners</h2>
+           <div class="partners-marquee">
+  <div class="partners-track">
+    <!-- set 1 -->
+    <div class="partner-card"><img src="assets/partners/DHLlogo.svg" alt=""></div>
+    <div class="partner-card"><img src="assets/partners/IraqiAirlines.svg" alt=""></div>
+    <div class="partner-card"><img src="assets/partners/BookingCom.svg" alt=""></div>
+    <div class="partner-card"><img src="assets/partners/TurkishAirlines.svg" alt=""></div>
+    <div class="partner-card"><img src="assets/partners/CanadaAirlines.svg" alt=""></div>
+    <div class="partner-card"><img src="assets/partners/PegasusAirlines.svg" alt=""></div>
+
+    <!-- set 2 (same exact order) -->
+    <div class="partner-card"><img src="assets/partners/DHLlogo.svg" alt=""></div>
+    <div class="partner-card"><img src="assets/partners/IraqiAirlines.svg" alt=""></div>
+    <div class="partner-card"><img src="assets/partners/BookingCom.svg" alt=""></div>
+    <div class="partner-card"><img src="assets/partners/TurkishAirlines.svg" alt=""></div>
+    <div class="partner-card"><img src="assets/partners/CanadaAirlines.svg" alt=""></div>
+    <div class="partner-card"><img src="assets/partners/PegasusAirlines.svg" alt=""></div>
+  </div>
+</div>
+
+      </section>
+
+      <!-- Visa Services Section -->
+      <section id="visa" class="visa-section section">
+        <div class="container">
+          <h2 class="section-title">VISA SERVICES</h2>
+          <p class="section-subtitle">
+            Providing visa support across the globe in a faster manner.
+          </p>
+          <div class="visa-grid">
+            <!-- Visa card 1 -->
+            <div class="visa-card">
+              <div class="visa-icon">
+                <!-- world icon (using geo again) -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                  />
+                </svg>
+              </div>
+              <h3>Worldwide Coverage</h3>
+              <p>Visas for over 190 destinations worldwide.</p>
+            </div>
+            <!-- Visa card 2 -->
+            <div class="visa-card">
+              <div class="visa-icon">
+                <!-- clock icon for fast processing (use headset path as base) -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5"
+                  />
+                </svg>
+              </div>
+              <h3>Fast Processing</h3>
+              <p>Express turnaround times and real‑time updates.</p>
+            </div>
+            <!-- Visa card 3 -->
+            <div class="visa-card">
+              <div class="visa-icon">
+                <!-- medal/award icon: reuse award placeholder image for aesthetic -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <!-- medal circle -->
+  <path d="M8 1.25a4.75 4.75 0 1 0 0 9.5 4.75 4.75 0 0 0 0-9.5Zm0 8.5a3.75 3.75 0 1 1 0-7.5 3.75 3.75 0 0 1 0 7.5Z"/>
+  <!-- check mark -->
+  <path d="M10.73 5.77a.5.5 0 0 1 0 .71L7.96 9.25a.5.5 0 0 1-.71 0L5.27 7.27a.5.5 0 0 1 .71-.71l1.62 1.62 2.42-2.42a.5.5 0 0 1 .71 0Z"/>
+  <!-- ribbons -->
+  <path d="M5.25 10.2v4.2a.5.5 0 0 0 .8.4L8 13.35l1.95 1.45a.5.5 0 0 0 .8-.4V10.2a5.95 5.95 0 0 1-1 .56v2.66L8.3 12.3a.5.5 0 0 0-.6 0l-1.45 1.12V10.76a5.95 5.95 0 0 1-1-.56Z"/>
+</svg>
+
+              </div>
+              <h3>High Success Rate</h3>
+              <p>Expert preparation for a high approval probability.</p>
+            </div>
+          </div>
+          <button class="btn btn-secondary visa-cta" id="open-visa-modal">
+            Start Visa Application
+          </button>
+        </div>
+      </section>
+
+      <!-- Group Trips Section -->
+      <section id="group-trips" class="trips-section section">
+        <div class="container">
+          <h2 class="section-title">Group Trips</h2>
+          <p class="section-subtitle">
+            Captivating travel experiences for all ages and tastes.
+          </p>
+          <div class="trips-grid">
+            <!-- Trip card 1 -->
+            <div class="trip-card">
+              <div class="trip-image">
+                <img src="assets/photos/1w.jpg" alt="Greece Tour" />
+              </div>
+              <div class="trip-content">
+                <h3>Greece Tour</h3>
+                <p>Experience ancient wonders and vibrant culture on our Greece adventure.</p>
+              </div>
+            </div>
+            <!-- Trip card 2 -->
+            <div class="trip-card">
+              <div class="trip-image">
+                <img src="assets/photos/2w.webp" alt="European Escapade" />
+              </div>
+              <div class="trip-content">
+                <h3>European Escapade</h3>
+                <p>Traverse historic cities and breathtaking landscapes across Europe.</p>
+              </div>
+            </div>
+            <!-- Trip card 3 -->
+            <div class="trip-card">
+              <div class="trip-image">
+                <img src="assets/photos/3w.jpg" alt="Family Cruise" />
+              </div>
+              <div class="trip-content">
+                <h3>Family Cruise</h3>
+                <p>Relax and bond with loved ones on a luxurious cruise getaway.</p>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary trips-cta">Book Your Tour</a>
+        </div>
+      </section>
+
+      <!-- Awards & Recognition Section -->
+      <section id="awards" class="awards-section section">
+        <div class="container">
+          <h2 class="section-title">Awards & Recognition</h2>
+          <p class="section-subtitle">
+            Our commitment to excellence has been recognized globally.
+          </p>
+          <div class="awards-grid">
+            <div class="award-item">
+              <img src="assets/photos/Telskof2022.png" alt="Award 1" />
+              <span class="award-label">Winner 2022</span>
+            </div>
+            <div class="award-item">
+              <img src="assets/photos/Telskof2023.png" alt="Award 2" />
+              <span class="award-label">Winner 2023</span>
+            </div>
+            <div class="award-item">
+              <img src="assets/photos/Telskof2024.png" alt="Award 3" />
+              <span class="award-label">Winner 2024</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="testimonials-section section">
+        <div class="container">
+          <h2 class="section-title">What Our Clients Say</h2>
+          <p class="section-subtitle">
+            Hear from the people whose journeys we've helped make extraordinary.
+          </p>
+          <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <div class="testimonial-top">
+                <div class="avatar"></div>
+                <div class="stars">
+                  <span>★★★★★</span>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                Booking through Telskof made my trip seamless and memorable. Highly
+                recommended!
+              </p>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <div class="testimonial-top">
+                <div class="avatar"></div>
+                <div class="stars">
+                  <span>★★★★★</span>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                Excellent service! Telskof handled my visa and hotel with zero
+                hassle.
+              </p>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-top">
+                <div class="avatar"></div>
+                <div class="stars">
+                  <span>★★★★★</span>
+                </div>
+              </div>
+              <p class="testimonial-text">
+                Our family trip was the best experience we’ve ever had. Thank you
+                Telskof!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about-section section">
+        <div class="container about-container">
+          <div class="about-text">
+            <h2 class="section-title">About Telskof Travel</h2>
+            <p>
+              At Telskof Travel we create bespoke journeys that embody your
+              passions and preferences. Our dedicated team ensures every detail
+              of your adventure is curated for comfort, excitement and
+              unforgettable memories. With years of experience and a global
+              network of partners, we strive to bring the world closer to you.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-number">16+</span>
+              <span class="stat-label">Years of experience</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">74K</span>
+              <span class="stat-label">Happy travellers</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Destinations</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Support</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section section">
+        <div class="container contact-container">
+          <div class="contact-form">
+            <h2 class="section-title">Get in touch</h2>
+            <form id="contact-form">
+              <input type="text" name="name" placeholder="Name" required />
+              <input type="email" name="email" placeholder="Email" required />
+              <textarea
+                name="message"
+                placeholder="Message"
+                rows="4"
+                required
+              ></textarea>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+          </div>
+          <div class="contact-map">
+            <!-- Map placeholder -->
+            <div class="map-placeholder">Map loading…</div>
+            <p class="contact-info">
+              <strong>Address:</strong> 123 Main Street, Erbil, Iraq<br />
+              <strong>Phone:</strong> +964 750 123 4567<br />
+              <strong>Email:</strong> info@telskoftravel.com
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <img src="assets/TelskofSVG.svg" alt="Telskof logo" />
+          <p>Start your unforgettable journey with us.</p>
+        </div>
+        <div class="footer-nav">
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#flights">Flights</a></li>
+            <li><a href="#visa">Visa</a></li>
+            <li><a href="#group-trips">Trips</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">&#x1F426;</a>
+          <a href="#" aria-label="Instagram">&#x1F33C;</a>
+          <a href="#" aria-label="Twitter">&#x1F426;</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy; <span id="year"></span> Telskof Travel. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Visa Modal -->
+    <div id="visa-modal" class="modal" aria-hidden="true">
+      <div class="modal-overlay"></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="visa-modal-title">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <h2 id="visa-modal-title">Visa Form</h2>
+        <p class="modal-desc">
+          This information helps us prepare your visa request. Once
+          submitted, we will contact you as soon as possible.
+        </p>
+        <form id="visa-form" novalidate>
+          <div class="form-row">
+            <input type="text" name="fullName" placeholder="Full Name" required />
+            <input type="tel" name="phone" placeholder="Phone" required />
+          </div>
+          <div class="form-row">
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="text" name="nationality" placeholder="Nationality" required />
+          </div>
+          <div class="form-row">
+            <input type="text" name="visaType" placeholder="Visa Type" required />
+            <input type="text" name="destination" placeholder="Destination" required />
+          </div>
+          <div class="form-row full">
+            <input type="date" name="travelDate" placeholder="Date" />
+          </div>
+          <textarea name="message" placeholder="Message" rows="4"></textarea>
+          <button type="submit" class="btn btn-primary modal-send">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
