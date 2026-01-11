@@ -55,7 +55,7 @@
     </div>
 
     <div class="hero-image">
-      <img src="/assets/photos/Assyrian.png" alt="Assyrian statue illustration" />
+      <img src="assets/photos/ishtargate.png" alt="telskof" />
     </div>
   </div>
 </section>
@@ -288,7 +288,15 @@
             <div class="visa-card">
               <div class="visa-icon">
                 <!-- medal/award icon: reuse award placeholder image for aesthetic -->
-                <img src="assets/award.png" alt="Success Rate" />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <!-- medal circle -->
+  <path d="M8 1.25a4.75 4.75 0 1 0 0 9.5 4.75 4.75 0 0 0 0-9.5Zm0 8.5a3.75 3.75 0 1 1 0-7.5 3.75 3.75 0 0 1 0 7.5Z"/>
+  <!-- check mark -->
+  <path d="M10.73 5.77a.5.5 0 0 1 0 .71L7.96 9.25a.5.5 0 0 1-.71 0L5.27 7.27a.5.5 0 0 1 .71-.71l1.62 1.62 2.42-2.42a.5.5 0 0 1 .71 0Z"/>
+  <!-- ribbons -->
+  <path d="M5.25 10.2v4.2a.5.5 0 0 0 .8.4L8 13.35l1.95 1.45a.5.5 0 0 0 .8-.4V10.2a5.95 5.95 0 0 1-1 .56v2.66L8.3 12.3a.5.5 0 0 0-.6 0l-1.45 1.12V10.76a5.95 5.95 0 0 1-1-.56Z"/>
+</svg>
+
               </div>
               <h3>High Success Rate</h3>
               <p>Expert preparation for a high approval probability.</p>
@@ -311,7 +319,7 @@
             <!-- Trip card 1 -->
             <div class="trip-card">
               <div class="trip-image">
-                <img src="assets/trip1.png" alt="Greece Tour" />
+                <img src="assets/photos/1w.jpg" alt="Greece Tour" />
               </div>
               <div class="trip-content">
                 <h3>Greece Tour</h3>
@@ -321,7 +329,7 @@
             <!-- Trip card 2 -->
             <div class="trip-card">
               <div class="trip-image">
-                <img src="assets/trip2.png" alt="European Escapade" />
+                <img src="assets/photos/2w.webp" alt="European Escapade" />
               </div>
               <div class="trip-content">
                 <h3>European Escapade</h3>
@@ -331,7 +339,7 @@
             <!-- Trip card 3 -->
             <div class="trip-card">
               <div class="trip-image">
-                <img src="assets/trip3.png" alt="Family Cruise" />
+                <img src="assets/photos/3w.jpg" alt="Family Cruise" />
               </div>
               <div class="trip-content">
                 <h3>Family Cruise</h3>
@@ -352,16 +360,16 @@
           </p>
           <div class="awards-grid">
             <div class="award-item">
-              <img src="assets/award.png" alt="Award 1" />
+              <img src="assets/photos/Telskof2022.png" alt="Award 1" />
+              <span class="award-label">Winner 2022</span>
+            </div>
+            <div class="award-item">
+              <img src="assets/photos/Telskof2023.png" alt="Award 2" />
               <span class="award-label">Winner 2023</span>
             </div>
             <div class="award-item">
-              <img src="assets/award.png" alt="Award 2" />
+              <img src="assets/photos/Telskof2024.png" alt="Award 3" />
               <span class="award-label">Winner 2024</span>
-            </div>
-            <div class="award-item">
-              <img src="assets/award.png" alt="Award 3" />
-              <span class="award-label">Winner 2025</span>
             </div>
           </div>
         </div>
@@ -453,62 +461,140 @@
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="contact-section section">
-        <div class="container contact-container">
-          <div class="contact-form">
-            <h2 class="section-title">Get in touch</h2>
-            <form id="contact-form">
-              <input type="text" name="name" placeholder="Name" required />
-              <input type="email" name="email" placeholder="Email" required />
-              <textarea
-                name="message"
-                placeholder="Message"
-                rows="4"
-                required
-              ></textarea>
-              <button type="submit" class="btn btn-primary">Send</button>
-            </form>
-          </div>
-          <div class="contact-map">
-            <!-- Map placeholder -->
-            <div class="map-placeholder">Map loading…</div>
-            <p class="contact-info">
-              <strong>Address:</strong> 123 Main Street, Erbil, Iraq<br />
-              <strong>Phone:</strong> +964 750 123 4567<br />
-              <strong>Email:</strong> info@telskoftravel.com
-            </p>
-          </div>
-        </div>
-      </section>
+      <!-- Contact Section -->
+<section id="contact" class="contact-section section">
+  <div class="container contact-container">
+    
+    <div class="contact-form">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">Send us a message and we will reply as soon as possible.</p>
+
+      <form
+        id="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+
+        <p class="hidden">
+          <label>Don’t fill this if you’re human: <input name="bot-field" /></label>
+        </p>
+
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Message" rows="4" required></textarea>
+
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+
+    <div class="contact-map">
+      <!-- put map or info here later if you want -->
+    </div>
+
+  </div>
+</section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="container footer-container">
-        <div class="footer-brand">
-          <img src="assets/TelskofSVG.svg" alt="Telskof logo" />
-          <p>Start your unforgettable journey with us.</p>
+    <!-- Footer (New like design) -->
+<footer class="footer footer-v2" id="footer">
+  <!-- Top: Offices Grid -->
+  <div class="footer-top">
+    <div class="container footer-top-inner">
+      <div class="footer-top-line"></div>
+
+      <!-- Scroll to top button (red circle) -->
+      <button id="footer-scroll-top" class="footer-scroll-top" aria-label="Scroll to top">
+        &#9650;
+      </button>
+
+      <div class="footer-offices">
+        <div class="office-card">
+          <h3>Duhok</h3>
+          <p>Gari Basi &amp; K.R.O</p>
+          <p>Zakho way, Duhok</p>
+          <a class="office-link" href="mailto:info@telskof.com">info@telskof.com</a>
+          <p class="office-phone"><span class="office-ico">📞</span> Office: +964 770 599 3333</p>
         </div>
-        <div class="footer-nav">
-          <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#flights">Flights</a></li>
-            <li><a href="#visa">Visa</a></li>
-            <li><a href="#group-trips">Trips</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+
+        <div class="office-card">
+          <h3>Erbil</h3>
+          <p>Ankawa</p>
+          <p>Two Side, ankawa st</p>
+          <a class="office-link" href="mailto:opration@telskof.com">opration@telskof.com</a>
+          <p class="office-phone"><span class="office-ico">📞</span> Office: +964 750 051 6662</p>
         </div>
-        <div class="footer-social">
-          <a href="#" aria-label="Facebook">&#x1F426;</a>
-          <a href="#" aria-label="Instagram">&#x1F33C;</a>
-          <a href="#" aria-label="Twitter">&#x1F426;</a>
+
+        <div class="office-card">
+          <h3>Kirkuk</h3>
+          <p>Kornish</p>
+          <p>Kirkuk Kornish St</p>
+          <a class="office-link" href="mailto:opration@telskof.com">opration@telskof.com</a>
+          <p class="office-phone"><span class="office-ico">📞</span> Office: +964 770 051 6666</p>
+        </div>
+
+        <div class="office-card">
+          <h3>Zakho</h3>
+          <p>Zakho</p>
+          <p>New Zakho</p>
+          <a class="office-link" href="mailto:zakho@telskof.com">zakho@telskof.com</a>
+          <p class="office-phone"><span class="office-ico">📞</span> Office: +964 750 051 6662</p>
+        </div>
+
+        <div class="office-card">
+          <h3>Telskof</h3>
+          <p>Telskof</p>
+          <p>Telskof way</p>
+          <a class="office-link" href="mailto:tel@telskof.com">tel@telskof.com</a>
+          <p class="office-phone"><span class="office-ico">📞</span> Office: +964 750 206 0203</p>
+        </div>
+
+        <div class="office-card">
+          <h3>Sydney</h3>
+          <p>Sydney, Australia</p>
+          <p>Aus st</p>
+          <a class="office-link" href="mailto:syd@telskof.com">syd@telskof.com</a>
+          <p class="office-phone"><span class="office-ico">📞</span> Office: +61 404 524 444</p>
         </div>
       </div>
-      <div class="container footer-bottom">
-        <p>&copy; <span id="year"></span> Telskof Travel. All rights reserved.</p>
+    </div>
+  </div>
+
+  <!-- Bottom: Logo + nav + socials -->
+  <div class="footer-bottom-bar">
+    <div class="container footer-bottom-inner">
+      <div class="footer-brand">
+        <img src="assets/TelskofSVG.svg" alt="Telskof logo" />
       </div>
-    </footer>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#flights">Flights</a></li>
+          <li><a href="#visa">Visas</a></li>
+          <li><a href="#group-trips">Trips</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <p class="footer-copy">
+          &copy; <span id="year"></span> Telskof Travel. All rights reserved.
+        </p>
+      </nav>
+
+      <div class="footer-social">
+        <a class="social-pill" href="#" aria-label="LinkedIn">in</a>
+        <a class="social-pill" href="#" aria-label="Facebook">f</a>
+        <a class="social-pill" href="#" aria-label="Instagram">◎</a>
+        <a class="social-pill" href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
 
     <!-- Visa Modal -->
     <div id="visa-modal" class="modal" aria-hidden="true">

@@ -101,4 +101,74 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
+    /* Footer scroll-to-top button */
+  const footerTopBtn = document.getElementById('footer-scroll-top');
+  if (footerTopBtn) {
+    footerTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+  /* ===== Netlify Forms (AJAX submit, no refresh) ===== */
+  function serializeForm(form) {
+    const data = new FormData(form);
+    const params = new URLSearchParams();
+    for (const [key, value] of data.entries()) params.append(key, value);
+    return params.toString();
+  }
+
+  function wireNetlifyForm(formId) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    const btn = form.querySelector('button[type="submit"]');
+    const btnText = btn ? btn.textContent : "Send";
+
+    let msg = form.querySelector('.form-msg');
+    if (!msg) {
+      msg = document.createElement('p');
+      msg.className = 'form-msg';
+      form.appendChild(msg);
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      msg.textContent = "";
+      msg.classList.remove('ok', 'err');
+
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+      }
+
+      try {
+        const body = serializeForm(form);
+
+        const res = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body
+        });
+
+        if (!res.ok) throw new Error("Submit failed");
+
+        form.reset();
+        msg.textContent = "Sent successfully ✅";
+        msg.classList.add('ok');
+
+      } catch (err) {
+        msg.textContent = "Something went wrong, try again";
+        msg.classList.add('err');
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = btnText;
+        }
+      }
+    });
+  }
+
+  wireNetlifyForm("contact-form");
+  wireNetlifyForm("visa-form");
+
 });
