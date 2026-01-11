@@ -469,26 +469,31 @@
       <h2 class="section-title">Contact</h2>
       <p class="section-subtitle">Send us a message and we will reply as soon as possible.</p>
 
-      <form
-        id="contact-form"
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="form-name" value="contact" />
+<form
+  id="contact-form"
+  name="contact"
+  method="POST"
+  action="/"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+>
+  <input type="hidden" name="form-name" value="contact" />
 
-       <p hidden>
-  <label>Don’t fill this if you’re human: <input name="bot-field" /></label>
-</p>
+  <!-- Honeypot (must stay hidden) -->
+  <p hidden>
+    <label>
+      Don’t fill this if you’re human:
+      <input name="bot-field" />
+    </label>
+  </p>
 
+  <input type="text" name="name" placeholder="Name" required />
+  <input type="email" name="email" placeholder="Email" required />
+  <textarea name="message" placeholder="Message" rows="4" required></textarea>
 
-        <input type="text" name="name" placeholder="Name" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <textarea name="message" placeholder="Message" rows="4" required></textarea>
+  <button type="submit" class="btn btn-primary">Send</button>
+</form>
 
-        <button type="submit" class="btn btn-primary">Send</button>
-      </form>
     </div>
 
     <div class="contact-map">

@@ -142,14 +142,14 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         const body = serializeForm(form);
 
-        const res = await fetch(
-          form.getAttribute("action") || window.location.pathname,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body
-          }
-        );
+const res = await fetch(window.location.href, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Accept": "application/json"
+  },
+  body
+});
 
         if (!res.ok) throw new Error("Submit failed");
 
