@@ -229,7 +229,7 @@ a {
 .hero-image {
   position: absolute;
 
-  right: -250px;      /* pushes image MORE to the right */
+  right: -100px;      /* pushes image MORE to the right */
   bottom: -50px;
 
   height: 100%;
@@ -697,6 +697,10 @@ a {
 
 .trip-content {
   padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1; /* makes equal height + lets button stick to bottom */
 }
 
 .trip-content h3 {
@@ -705,8 +709,19 @@ a {
 }
 
 .trip-content p {
+  margin: 0;
   font-size: 0.85rem;
   color: var(--clr-text-secondary);
+
+  /* keeps cards consistent if text differs */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.6em * 3);
+}
+.trip-more {
+  margin-top: auto; /* aligns all "More Info" buttons at the bottom */
 }
 
 .trips-cta {
@@ -834,6 +849,271 @@ a {
   font-size: 0.8rem;
   color: var(--clr-text-secondary);
 }
+.awards-grid-v2{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.award-card{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(229,54,44,0.22);
+  border-radius: 18px;
+  padding: 18px;
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+  transition: transform .18s ease, border-color .18s ease;
+}
+
+.award-card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(229,54,44,0.45);
+}
+
+.award-card img{
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+}
+
+.award-info{
+  display:flex;
+  flex-direction:column;
+  gap: 4px;
+}
+
+.award-year{
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .4px;
+}
+
+.award-title{
+  font-size: .85rem;
+  color: rgba(255,255,255,0.70);
+}
+/* ===== Awards V3 (premium timeline cards) ===== */
+.awards-timeline{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.award-item-v3{
+  display:flex;
+  gap: 14px;
+  align-items:flex-start;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 16px 16px;
+
+  box-shadow: 0 14px 34px rgba(0,0,0,0.38);
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.award-item-v3:hover{
+  transform: translateY(-3px);
+  border-color: rgba(229,54,44,0.40);
+  background: rgba(255,255,255,0.04);
+}
+
+.award-badge{
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+  display:grid;
+  place-items:center;
+
+  background: radial-gradient(circle at 30% 20%, rgba(229,54,44,0.18), transparent 55%),
+              rgba(255,255,255,0.03);
+  border: 1px solid rgba(229,54,44,0.22);
+  flex: 0 0 62px;
+}
+
+.award-badge img{
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.award-text{
+  flex:1;
+  min-width: 0;
+}
+
+.award-topline{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.award-year{
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: .3px;
+}
+
+.award-chip{
+  font-size: .75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(229,54,44,0.35);
+  background: rgba(229,54,44,0.12);
+  color: rgba(255,255,255,0.86);
+}
+
+.award-title{
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.award-desc{
+  margin-top: 6px;
+  font-size: .88rem;
+  color: rgba(255,255,255,0.70);
+  line-height: 1.55;
+}
+/* ===== Awards V4 (clean cards with text) ===== */
+.awards-v4{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.award-v4{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.38);
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.award-v4:hover{
+  transform: translateY(-3px);
+  border-color: rgba(229,54,44,0.40);
+  background: rgba(255,255,255,0.04);
+}
+
+.award-v4-head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.award-v4-head img{
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  padding: 8px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(229,54,44,0.22);
+}
+
+.award-v4-year{
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: .6px;
+}
+
+.award-v4-title{
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.award-v4-desc{
+  margin: 8px 0 12px;
+  font-size: .88rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.72);
+  min-height: calc(1.55em * 3);
+}
+
+.award-v4-chip{
+  display:inline-block;
+  font-size: .75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(229,54,44,0.35);
+  background: rgba(229,54,44,0.12);
+  color: rgba(255,255,255,0.86);
+}
+
+/* ===== Reviews V4 (no buttons) ===== */
+.reviews-v4{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.review-v4{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.35);
+}
+
+.review-v4-top{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+  margin-bottom: 10px;
+}
+
+.review-v4-avatar{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display:grid;
+  place-items:center;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(229,54,44,0.18);
+  border: 1px solid rgba(229,54,44,0.30);
+}
+
+.review-v4-name{
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.review-v4-meta{
+  font-size: .82rem;
+  color: rgba(255,255,255,0.65);
+  margin-top: 3px;
+}
+
+.review-v4-text{
+  margin: 0;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+
+  /* keep cards nice */
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.6em * 6);
+}
 
 /* Testimonials */
 .testimonials-grid {
@@ -876,6 +1156,60 @@ a {
 .testimonial-text {
   font-size: 0.9rem;
   color: var(--clr-text-secondary);
+}
+.testimonials-grid-v2{
+  gap: 18px;
+}
+
+.review-card{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(229,54,44,0.22);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+
+.review-top{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+
+.review-avatar{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display:grid;
+  place-items:center;
+  font-weight: 800;
+  background: rgba(229,54,44,0.18);
+  border: 1px solid rgba(229,54,44,0.28);
+  color:#fff;
+}
+
+.review-name{
+  font-weight: 700;
+  color:#fff;
+  line-height: 1.1;
+}
+
+.review-meta{
+  font-size: .85rem;
+  color: rgba(255,255,255,0.68);
+}
+
+.review-text{
+  color: rgba(255,255,255,0.78);
+  font-size: .92rem;
+  line-height: 1.6;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* About */
@@ -1402,6 +1736,52 @@ a {
   margin-top: var(--space-sm);
   width: 100%;
 }
+/* Trip Inquiry form - match Visa form style */
+#trip-inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+#trip-inquiry-form .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+#trip-inquiry-form .form-row.full {
+  grid-template-columns: 1fr;
+}
+
+#trip-inquiry-form input,
+#trip-inquiry-form textarea,
+#trip-inquiry-form select {
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--clr-card-bg);
+  color: var(--clr-text-primary);
+  width: 100%;
+  outline: none;
+}
+
+#trip-inquiry-form input::placeholder,
+#trip-inquiry-form textarea::placeholder {
+  color: var(--clr-text-secondary);
+}
+
+#trip-inquiry-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Mobile like visa */
+@media (max-width: 768px) {
+  #trip-inquiry-form .form-row {
+    grid-template-columns: 1fr !important;
+  }
+}
 
 /* Responsive styles */
 @media (max-width: 1024px) {
@@ -1421,8 +1801,8 @@ a {
   .hero-image {
     width: 100%;
     height: 55%;
-    right: -200px;   /* push to the right on mobile */
-    bottom: -370px;   /* push down a bit */
+    right: -110px;   /* push to the right on mobile */
+    bottom: -400px;   /* push down a bit */
     z-index: 1;
   }
 
@@ -1605,4 +1985,30 @@ a {
 .trip-price{
   font-weight: 700;
   color: #fff;
+}
+/* Trip modal layout improvements */
+.trip-modal-grid{
+  display: grid;
+  gap: 10px;
+}
+
+.trip-modal-row--full{
+  grid-column: 1 / -1;
+}
+
+.trip-modal-two{
+  display: grid;
+  gap: 10px;
+  grid-column: 1 / -1;
+}
+
+/* Desktop: 2 columns for Duration/Price */
+@media (min-width: 768px){
+  .trip-modal-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .trip-modal-two{
+    grid-template-columns: 1fr 1fr;
+  }
 }

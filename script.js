@@ -91,203 +91,231 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   /* =======================
-     TRIP DETAILS MODAL
-  ======================== */
-  const tripModal = document.getElementById("trip-modal");
-  const tripModalBody = document.getElementById("trip-modal-body");
-  const tripModalTitle = document.getElementById("trip-modal-title");
+   TRIP INQUIRY MODAL (same behavior as visa)
+======================== */
+const openTripInquiryBtn = document.getElementById("open-trip-inquiry-modal");
+const tripInquiryModal = document.getElementById("trip-inquiry-modal");
 
-  const tripData = {
-    "meso-mountains": {
-      title: "Mesopotamia to Mountains – Grand Iraq & Kurdistan Journey",
-      duration: "10 Days / 9 Nights",
-      route: "Baghdad → Samarra → Mosul → Duhok → Amadiya → Sulaymaniyah → Halabja → Erbil",
-      highlights: [
-        "Mesopotamian sites: Babylon, Nimrud, Hatra",
-        "Baghdad heritage, museums & Tigris boat ride",
-        "Assyrian, Islamic & Yazidi landmarks",
-        "Mountain roads, caves & scenic valleys",
-        "Local markets, traditional food & culture"
-      ],
-      includes: ["Hotels with breakfast", "Private transport & driver", "Professional guide", "Entrance fees"],
-      notIncluded: ["Flights", "Lunches / dinners", "Visa fees"],
-      idealFor: "History lovers, culture explorers, first-time Iraq visitors",
-      price: "From $2,200 – $2,600 per person (depends on group size)"
-    },
+if (openTripInquiryBtn && tripInquiryModal) {
+  const overlay = tripInquiryModal.querySelector(".modal-overlay");
+  const closeBtns = tripInquiryModal.querySelectorAll("[data-close='true']");
 
-    "cradle-explorer": {
-      title: "Cradle of Civilization – Southern Iraq & Kurdistan Explorer",
-      duration: "9 Days / 8 Nights",
-      route: "Basra → Marshes → Ur → Najaf → Karbala → Baghdad → Mosul → Erbil",
-      highlights: [
-        "Shatt al-Arab & Basra heritage",
-        "Marshes boat ride & traditional reed houses",
-        "Ziggurat of Ur & ancient Babylon",
-        "Holy cities: Najaf & Karbala",
-        "Mosul old city & Erbil citadel"
-      ],
-      includes: ["Hotels with breakfast", "Transport & local guide", "Entrance fees"],
-      notIncluded: ["Flights", "Lunches / dinners", "Visa fees"],
-      idealFor: "Cultural travelers, archaeology fans, religious heritage visitors",
-      price: "From $2,000 – $2,400 per person"
-    },
+  const focusableSelectors = "input, textarea, button, select, a[href]";
+  let focusableElements = [];
+  let firstFocusable, lastFocusable;
+  let lastActiveElement = null;
 
-    "heart-kurdistan": {
-      title: "Heart of Kurdistan – Culture, Mountains & Ancient Faiths",
-      duration: "11 Days / 10 Nights",
-      route: "Erbil → Duhok → Amadiya → Zakho → Lalish → Sulaymaniyah → Rawanduz",
-      highlights: [
-        "Erbil Citadel & bazaars",
-        "Assyrian reliefs & monasteries",
-        "Enishke Cave & ancient villages",
-        "Lalish – Yazidi holy site",
-        "Dukan Lake, Rawanduz & waterfalls"
-      ],
-      includes: ["Hotels with breakfast", "Private car & driver", "Guide & entrance fees"],
-      notIncluded: ["Flights", "Lunches / dinners", "Visa fees"],
-      idealFor: "Nature lovers, photographers, cultural explorers",
-      price: "From $2,100 – $2,500 per person"
-    },
+  function openTripInquiryModal() {
+    lastActiveElement = document.activeElement;
 
-    "kurdistan-highlights": {
-      title: "Kurdistan Highlights – Short Cultural Escape",
-      duration: "8 Days / 7 Nights",
-      route: "Erbil → Duhok → Amadiya → Lalish → Sulaymaniyah",
-      highlights: [
-        "Erbil Citadel & old markets",
-        "Monastery of Mar Mattai",
-        "Four Pillars Temple",
-        "Lalish & Assyrian monasteries",
-        "Shanidar Cave & Hamilton Road"
-      ],
-      includes: ["Hotels with breakfast", "Transport & guide", "Entrance fees"],
-      notIncluded: ["Flights", "Lunches / dinners", "Visa fees"],
-      idealFor: "Short trips, first-time Kurdistan visitors",
-      price: "From $1,500 – $1,900 per person"
+    tripInquiryModal.classList.add("active");
+    tripInquiryModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    focusableElements = Array.from(
+      tripInquiryModal.querySelectorAll(focusableSelectors)
+    ).filter(el => !el.disabled);
+
+    if (focusableElements.length) {
+      firstFocusable = focusableElements[0];
+      lastFocusable = focusableElements[focusableElements.length - 1];
+      firstFocusable.focus();
     }
-  };
-
-  function escapeHtml(str) {
-    return String(str)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
   }
 
-  function renderTripModal(trip) {
-    tripModalTitle.textContent = trip.title;
+  function closeTripInquiryModal() {
+    tripInquiryModal.classList.remove("active");
+    tripInquiryModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
 
-    tripModalBody.innerHTML = `
+    if (lastActiveElement && typeof lastActiveElement.focus === "function") {
+      lastActiveElement.focus();
+    }
+  }
+
+  openTripInquiryBtn.addEventListener("click", e => {
+    e.preventDefault();
+    openTripInquiryModal();
+  });
+
+  overlay?.addEventListener("click", closeTripInquiryModal);
+  closeBtns.forEach(btn => btn.addEventListener("click", closeTripInquiryModal));
+
+  window.addEventListener("keydown", e => {
+    if (e.key === "Escape" && tripInquiryModal.classList.contains("active")) {
+      closeTripInquiryModal();
+    }
+
+    if (e.key === "Tab" && tripInquiryModal.classList.contains("active")) {
+      if (!focusableElements.length) return;
+
+      if (e.shiftKey && document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable.focus();
+      } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+        e.preventDefault();
+        firstFocusable.focus();
+      }
+    }
+  });
+}
+const tripData = {
+  "meso-mountains": {
+    title: "Mesopotamia to Mountains",
+    duration: "10D / 9N",
+    price: "Contact us",
+    route: "Baghdad → Babylon → Najaf → Basra → Erbil → Duhok",
+    highlights: ["Ancient Mesopotamian sites", "Sacred cities", "Kurdistan mountains"],
+    includes: ["Hotels", "Transport", "Guide"],
+    notIncluded: ["Flights", "Personal expenses"],
+    idealFor: "History + nature lovers"
+  },
+
+  "cradle-explorer": {
+    title: "Cradle of Civilization",
+    duration: "9D / 8N",
+    price: "Contact us",
+    route: "South Iraq → Marshes → Northern cities",
+    highlights: ["Marshlands", "Ancient ruins", "Local traditions"],
+    includes: ["Hotels", "Transport", "Guide"],
+    notIncluded: ["Flights", "Personal expenses"],
+    idealFor: "Culture + heritage explorers"
+  },
+
+  "heart-kurdistan": {
+    title: "Heart of Kurdistan",
+    duration: "11D / 10N",
+    price: "Contact us",
+    route: "Erbil → Soran → Amedi → Duhok → Zakho",
+    highlights: ["Mountains", "Assyrian heritage", "Religious diversity"],
+    includes: ["Hotels", "Transport", "Guide"],
+    notIncluded: ["Flights", "Personal expenses"],
+    idealFor: "Nature + deep Kurdistan experience"
+  },
+
+  "kurdistan-highlights": {
+    title: "Kurdistan Highlights",
+    duration: "8D / 7N",
+    price: "Contact us",
+    route: "Erbil → Duhok → Amedi → Zakho",
+    highlights: ["Iconic cities", "Short escape", "Easy pace"],
+    includes: ["Hotels", "Transport", "Guide"],
+    notIncluded: ["Flights", "Personal expenses"],
+    idealFor: "Short trip + relaxed pace"
+  }
+};
+
+/* =======================
+   TRIP DETAILS MODAL (FIXED)
+======================== */
+const tripModal = document.getElementById("trip-modal");
+const tripModalBody = document.getElementById("trip-modal-body");
+const tripModalTitle = document.getElementById("trip-modal-title");
+
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function renderTripModal(trip) {
+  tripModalTitle.textContent = trip.title;
+
+  tripModalBody.innerHTML = `
+    <div class="trip-modal-grid">
+
       <div class="trip-modal-row">
         <h4>Duration</h4>
         <div>${escapeHtml(trip.duration)}</div>
       </div>
 
       <div class="trip-modal-row">
+        <h4>Price</h4>
+        <div class="trip-price">💰 ${escapeHtml(trip.price)}</div>
+      </div>
+
+      <div class="trip-modal-row trip-modal-row--full">
         <h4>Route highlights</h4>
         <div>${escapeHtml(trip.route)}</div>
       </div>
 
-      <div class="trip-modal-row">
+      <div class="trip-modal-row trip-modal-row--full">
         <h4>Main experiences</h4>
         <ul>
           ${trip.highlights.map(h => `<li>${escapeHtml(h)}</li>`).join("")}
         </ul>
       </div>
 
-      <div class="trip-modal-row">
-        <h4>Includes</h4>
-        <ul>
-          ${trip.includes.map(x => `<li>✔ ${escapeHtml(x)}</li>`).join("")}
-        </ul>
-      </div>
+      <div class="trip-modal-two">
+        <div class="trip-modal-row">
+          <h4>Includes</h4>
+          <ul>
+            ${trip.includes.map(x => `<li>✔ ${escapeHtml(x)}</li>`).join("")}
+          </ul>
+        </div>
 
-      <div class="trip-modal-row">
-        <h4>Not included</h4>
-        <ul>
-          ${trip.notIncluded.map(x => `<li>✖ ${escapeHtml(x)}</li>`).join("")}
-        </ul>
+        <div class="trip-modal-row">
+          <h4>Not included</h4>
+          <ul>
+            ${trip.notIncluded.map(x => `<li>✖ ${escapeHtml(x)}</li>`).join("")}
+          </ul>
+        </div>
       </div>
 
       ${trip.idealFor ? `
-        <div class="trip-modal-row">
+        <div class="trip-modal-row trip-modal-row--full">
           <h4>Ideal for</h4>
           <div>${escapeHtml(trip.idealFor)}</div>
         </div>
       ` : ""}
 
-      <div class="trip-modal-row">
-        <h4>Price</h4>
-        <div class="trip-price">💰 ${escapeHtml(trip.price)}</div>
-      </div>
-    `;
-  }
+    </div>
+  `;
+}
 
-  // Reuse same modal behavior style as visa modal
-  if (tripModal) {
-    const overlay = tripModal.querySelector(".modal-overlay");
-    const closeBtn = tripModal.querySelector(".modal-close");
+function openTripModal() {
+  if (!tripModal) return;
+  tripModal.classList.add("active");
+  tripModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
 
-    const focusableSelectors = "input, textarea, button, select, a[href]";
-    let focusableElements = [];
-    let firstFocusable, lastFocusable;
+function closeTripModal() {
+  if (!tripModal) return;
+  tripModal.classList.remove("active");
+  tripModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
 
-    function openTripModal() {
-      tripModal.classList.add("active");
-      tripModal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+if (tripModal) {
+  const overlay = tripModal.querySelector(".modal-overlay");
+  const closeBtn = tripModal.querySelector(".modal-close");
 
-      focusableElements = Array.from(
-        tripModal.querySelectorAll(focusableSelectors)
-      ).filter(el => !el.disabled);
+  // ✅ attach click listeners ONCE
+  document.querySelectorAll(".trip-more").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.trip;
+      const trip = tripData[key];
+      if (!trip) return;
 
-      if (focusableElements.length) {
-        firstFocusable = focusableElements[0];
-        lastFocusable = focusableElements[focusableElements.length - 1];
-        firstFocusable.focus();
-      }
-    }
-
-    function closeTripModal() {
-      tripModal.classList.remove("active");
-      tripModal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-    }
-
-    document.querySelectorAll(".trip-more").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const key = btn.dataset.trip;
-        const trip = tripData[key];
-        if (!trip) return;
-
-        renderTripModal(trip);
-        openTripModal();
-      });
+      renderTripModal(trip);
+      openTripModal();
     });
+  });
 
-    closeBtn?.addEventListener("click", closeTripModal);
-    overlay?.addEventListener("click", closeTripModal);
+  closeBtn?.addEventListener("click", closeTripModal);
+  overlay?.addEventListener("click", closeTripModal);
 
-    window.addEventListener("keydown", e => {
-      if (e.key === "Escape" && tripModal.classList.contains("active")) {
-        closeTripModal();
-      }
+  window.addEventListener("keydown", e => {
+    if (e.key === "Escape" && tripModal.classList.contains("active")) {
+      closeTripModal();
+    }
+  });
+}
 
-      if (e.key === "Tab" && tripModal.classList.contains("active")) {
-        if (!focusableElements.length) return;
-
-        if (e.shiftKey && document.activeElement === firstFocusable) {
-          e.preventDefault();
-          lastFocusable.focus();
-        } else if (!e.shiftKey && document.activeElement === lastFocusable) {
-          e.preventDefault();
-          firstFocusable.focus();
-        }
-      }
-    });
-  }
 
   /* =======================
      FOOTER UTILITIES
@@ -369,6 +397,8 @@ const res = await fetch(window.location.href, {
 
   wireNetlifyForm("contact-form");
   wireNetlifyForm("visa-form");
+  wireNetlifyForm("trip-inquiry-form");
+
 /* ===== Discover Iraq Modal (More Info) ===== */
 const tourismModal = document.getElementById("tourism-modal");
 const tourismTitle = document.getElementById("tourism-modal-title");
