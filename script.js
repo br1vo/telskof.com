@@ -503,5 +503,62 @@ window.addEventListener("keydown", (e) => {
     closeTourismModal();
   }
 });
+/* =======================
+   ABOUT STATS COUNT UP (on scroll)
+======================== */
+function animateCount(el, target, duration = 1200, suffix = "") {
+  const start = 0;
+  const startTime = performance.now();
+
+  function step(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const value = Math.floor(progress * (target - start) + start);
+    el.textContent = value + suffix;
+
+    if (progress < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
+
+const aboutSection = document.querySelector("#about");
+const statNumbers = document.querySelectorAll(".stat-number");
+
+let statsStarted = false;
+
+if (aboutSection && statNumbers.length) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !statsStarted) {
+          statsStarted = true;
+
+          statNumbers.forEach((el) => {
+            const staticVal = el.dataset.static;
+            if (staticVal) {
+              el.textContent = staticVal;
+              return;
+            }
+
+            const target = parseInt(el.dataset.target || "0", 10);
+            const suffix = el.dataset.suffix || "";
+
+            // start from 0 every time
+            el.textContent = "0" + suffix;
+
+            // small delay per card (nice effect)
+            const delay = Array.from(statNumbers).indexOf(el) * 120;
+            setTimeout(() => animateCount(el, target, 2500, suffix), delay);
+          });
+
+          observer.unobserve(aboutSection);
+        }
+      });
+    },
+    { threshold: 0.35 } // starts when ~35% of section is visible
+  );
+
+  observer.observe(aboutSection);
+}
 
 });
