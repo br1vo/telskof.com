@@ -574,10 +574,7 @@ a {
   opacity: 0.85;
   flex-shrink: 0;
 }
-.partners-track img:hover {
-  opacity: 1;
-  transform: scale(1.05);
-}
+
 
 @keyframes marquee {
   from {
@@ -715,6 +712,99 @@ a {
 .trips-cta {
   margin-top: var(--space-md);
   display: inline-block;
+}
+/* ===== Discover Iraq / Tourism Section (clean grid) ===== */
+.tourism-grid{
+  display: grid;
+  gap: 24px;
+  margin-bottom: 0;
+
+  /* Desktop = 3 columns */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+/* Tablet = 2 columns */
+@media (max-width: 1024px){
+  .tourism-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile = 1 column */
+@media (max-width: 640px){
+  .tourism-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+.tourism-card{
+  background: var(--clr-card-bg);
+  border: 1px solid var(--clr-card-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* image optional — if you removed images, keep this safe */
+.tourism-image img{
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tourism-content{
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* IMPORTANT: makes button align bottom */
+  flex: 1;
+}
+
+.tourism-content h3{
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.tourism-content p{
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--clr-text-secondary);
+
+  /* keeps text from making cards different height */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.6em * 3); /* 3 lines space */
+}
+
+.tourism-meta{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.meta-pill{
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.78);
+}
+
+/* PERFECT alignment: button always at bottom */
+.tourism-more{
+  margin-top: auto;       /* pushes button down */
+  align-self: flex-start; /* keep it left aligned */
 }
 
 /* Awards */
@@ -1466,4 +1556,53 @@ a {
   #visa-form textarea {
     width: 100%;
   }
+}
+/* Trip meta pills */
+.trip-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin: 12px 0 14px;
+}
+
+.trip-pill{
+  font-size: 0.78rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.78);
+}
+
+/* Trip Modal content */
+#trip-modal-body{
+  margin-top: 12px;
+  color: rgba(255,255,255,0.80);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.trip-modal-row{
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.trip-modal-row h4{
+  margin-bottom: 6px;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.trip-modal-row ul{
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255,255,255,0.72);
+}
+
+.trip-price{
+  font-weight: 700;
+  color: #fff;
 }
