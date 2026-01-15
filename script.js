@@ -425,13 +425,13 @@ const places = {
       { h: "Tips", items: ["Bring water + hat", "Combine with other southern sites for a full day"] }
     ]
   },
-  ishtar: {
-    title: "Ishtar Gate",
-    desc: "A symbol of Babylonian art and empire — one of Iraq’s most iconic heritage visuals.",
+  Soran: {
+    title: "Soran",
+    desc: "A popular mountain destination in the Kurdistan Region of Iraq, surrounded by deep valleys, rivers, and green highlands — perfect for nature lovers and relaxed exploration.",
     sections: [
-      { h: "Best for", items: ["Heritage lovers", "Museum + history travelers", "Quick cultural stop"] },
-      { h: "Highlights", items: ["Babylonian design motifs", "Mesopotamian history", "Great photo moments"] },
-      { h: "Tips", items: ["Pair it with Babylon for a complete story", "Ask us for the best viewing location"] }
+      { h: "Best for", items: ["Nature & mountain lovers", "Summer escapes from city heat", "Photography & scenic views"] },
+      { h: "Highlights", items: ["Mountain views and fresh air", "Nearby canyons, rivers, and waterfalls", "Peaceful atmosphere"] },
+      { h: "Tips", items: ["Best visited in spring and summer", "Bring light jackets for cooler evenings"] }
     ]
   },
   erbil: {

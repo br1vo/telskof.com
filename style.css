@@ -1458,33 +1458,34 @@ a {
   font-size: 0.78rem;
   color: rgba(255,255,255,0.55);
 }
+/* ===== Footer Social Icons (Minimal & Clean) ===== */
 
-/* Social pills */
-.footer-social{
+.footer-social {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
+  align-items: center;
+  gap: 18px;
 }
 
-.social-pill{
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.04);
-  display: grid;
-  place-items: center;
-  color: rgba(255,255,255,0.78);
-  text-decoration: none;
-  font-weight: 700;
-  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.social-pill:hover{
+.social-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: #E5362C;
+}
+
+.social-icon:hover {
   transform: translateY(-2px);
-  background: rgba(255,255,255,0.07);
-  color: var(--clr-text-primary);
+  opacity: 0.85;
 }
+
 
 /* Responsive footer */
 @media (max-width: 900px){
@@ -2012,87 +2013,35 @@ a {
     grid-template-columns: 1fr 1fr;
   }
 }
-.reviews-section{
-  padding: 70px 20px;
-  text-align: center;
-}
+/* ===== Floating WhatsApp Button ===== */
 
-.reviews-grid{
-  display: grid;
-  grid-template-columns: repeat(4, minmax(220px, 1fr));
-  gap: 16px;
-  max-width: 1150px;
-  margin: 0 auto;
-  align-items: start;
-}
+.whatsapp-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 9999;
 
-.review-card{
-  padding: 18px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 14px 35px rgba(0,0,0,0.28);
-  text-align: left;
-  min-height: 190px;
-}
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
 
-.review-top{
   display: flex;
-  gap: 12px;
   align-items: center;
-  margin-bottom: 12px;
+  justify-content: center;
+
+  background: #25D366; /* WhatsApp green */
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.review-avatar{
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  color: #fff;
-  background: rgba(229,54,44,0.22);
-  border: 1px solid rgba(229,54,44,0.35);
-  flex: 0 0 44px;
-  font-size: 14px;
+.whatsapp-float svg {
+  width: 26px;
+  height: 26px;
+  fill: #fff;
 }
 
-.review-name{
-  color: #fff;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 1.1;
-}
-
-.review-line{
-  margin-top: 4px;
-  color: rgba(255,255,255,0.75);
-  font-size: 12px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.review-stars{
-  letter-spacing: 1px;
-}
-
-.review-text{
-  color: rgba(255,255,255,0.78);
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;     /* show 6 lines then ... */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* responsive */
-@media (max-width: 1100px){
-  .reviews-grid{ grid-template-columns: repeat(2, minmax(240px, 1fr)); }
-}
-@media (max-width: 600px){
-  .reviews-grid{ grid-template-columns: 1fr; }
-  .review-card{ max-width: 520px; margin: 0 auto; }
+.whatsapp-float:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.5);
 }
